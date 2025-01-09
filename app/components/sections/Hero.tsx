@@ -72,13 +72,13 @@ export default function Hero() {
           </div> */}
         </div>
       </div>
-
-      <small className="font-bold absolute top-5 text-sm">
-        <span className="">
-          Better{" "}
-        </span>
-        Banner
-      </small>
+      {/* brand logo */}
+      <div className="flex absolute top-5 font-extrabold items-center">
+        <h1>
+          <span className="rounded text-4xl ">β</span>
+        </h1>
+        <small className=" text-sm">etter Banner</small>
+      </div>
       <small className="font-bold absolute bottom-10 text-sm">
         Scroll and start generating your banner!
       </small>
