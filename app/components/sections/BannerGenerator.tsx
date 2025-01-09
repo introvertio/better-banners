@@ -6,6 +6,13 @@ export default function BannerGenerator() {
       <h1 className="text-2xl font-black text-white">
         Start Generating Better Banners
       </h1>
+
+      <div>
+        {/* preview */}
+      </div>
+      <div>
+        {/* form  */}
+      </div>
     </section>
   );
 }

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 const michroma = Michroma({
   variable: "--font-michroma",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400",],
 });
 
 export const metadata: Metadata = {
