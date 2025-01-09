@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'main-blue':'#011ea0ff',
+        "main-blue": "#011ea0ff",
       },
     },
   },
