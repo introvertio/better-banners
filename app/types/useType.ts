@@ -2,7 +2,7 @@
 export interface BrandChoice {
   id: string; 
   BrandName: string;
-  BrandPosition: string;
+  BrandNameAlignment: string;
   BrandFonts: string;
   BrandColor: string;
   BrandSize: string;

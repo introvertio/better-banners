@@ -12,13 +12,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 const montserrat = Montserrat({
-  variable:"--font-montserrat",
-  subsets:["latin"],  
-})
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
 const michroma = Michroma({
   variable: "--font-michroma",
   subsets: ["latin"],
-  weight: ["400",],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
