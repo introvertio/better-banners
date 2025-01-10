@@ -12,7 +12,9 @@
     "@next/swc-win32-x64-msvc": "^15.1.4",
     "next": "15.1.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-haiku": "^2.1.8",
+    "react-hook-form": "^7.54.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Hero from "./components/sections/Hero";
 import BannerGenerator from "./components/sections/BannerGenerator";
 
