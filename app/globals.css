@@ -2,11 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  
+@font-face {
+  font-family: "BespokeStencil-Variable";
+  src: url("../fonts/BespokeStencil-Variable.woff2") format("woff2"),
+    url("../fonts/BespokeStencil-Variable.woff") format("woff"),
+    url("../fonts/BespokeStencil-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
 }
-html, body{
-    overflow-x: hidden;
+
+
+@font-face {
+  font-family: "Supreme-Variable";
+  src: url("../fonts/Supreme-Variable.woff2") format("woff2"),
+    url("../fonts/Supreme-Variable.woff") format("woff"),
+    url("../fonts/Supreme-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
 }
