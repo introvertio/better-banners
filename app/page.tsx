@@ -21,19 +21,22 @@ export default function Home() {
           <div
             className={`flex flex-row flex-wrap gap-3 items-center justify-center md:justify-between w-full ${supremeFont} font-extrabold text-sm md:text-lg`}
           >
-            <div className=" animate-bounce transition-all bg-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
-              <RichCustomizationIcon />
+            <div className="group animate-bounce transition-all bg-black hover:bg-white hover:text-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
+              <RichCustomizationIcon className="group-hover:invert" />
               <p>Rich Customization</p>
             </div>
-            <div className=" animate-bounce transition-all bg-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
-              <ExportIcon />
+            <div className="group animate-bounce transition-all bg-black hover:bg-white hover:text-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
+              <ExportIcon className="group-hover:invert" />
               <p>One-click Export</p>
             </div>
-            <div className=" animate-bounce transition-all bg-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
-              <StandoutIcon />
+            <div className="group animate-bounce transition-all bg-black hover:bg-white hover:text-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
+              <StandoutIcon className="group-hover:invert" />
               <p>Stand out</p>
             </div>
           </div>
+          <div className="w-full aspect-[820/310] bg-white flex flex-col"></div>
+          <br />
+          <br />
         </div>
       </section>
       <section id="bannerGenerate">
