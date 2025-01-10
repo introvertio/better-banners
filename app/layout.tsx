@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Michroma, Montserrat } from "next/font/google";
 import "./globals.css";
+import { bespokeFont } from "./components/styling/font-classes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${michroma.variable} ${geistMono.variable} ${montserrat.variable} antialiased dark:bg-black dark:text-white`}
+        className={`${geistSans.variable} ${michroma.variable} ${geistMono.variable} ${montserrat.variable} ${bespokeFont} antialiased dark:bg-black dark:text-white`}
         suppressHydrationWarning={true}
       >
         {children}
