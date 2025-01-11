@@ -26,42 +26,56 @@ export const StepOne = ({ control, register }: StepOneProps) => {
           })}
           maxLength={20}
         />
-      </div>
-      <div>
-        {/* placement */}
-        <label className="text-xs font-[montserrat] mt-8 font-bold">
-          Position
-        </label>
-        <div className="flex gap-2 ">
-          <Controller
-            name="alignment"
-            control={control}
-            render={({ field }) => (
-              <div className="flex gap-2">
-                {["left", "center", "right"].map((item, index) => (
-                  <button
-                    {...register("alignment")}
-                    key={index}
-                    type="button"
-                    className={`p-2 ${
-                      field.value === item ? "bg-main-blue" : "bg-main-blue/30"
-                    } text-white rounded-md text-xs border-white w-[5rem] capitalize`}
-                    onClick={() => field.onChange(item)}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            )}
-          />
+
+        <div className="flex gap-2 items-center mt-8">
+          <div>
+            {/* placement */}
+            <label className="text-xs font-[montserrat]  font-bold">
+              Position
+            </label>
+            <div className="flex gap-2 ">
+              <Controller
+                name="alignment"
+                control={control}
+                render={({ field }) => (
+                  <div className="flex gap-2">
+                    {["left", "center", "right"].map((item, index) => (
+                      <button
+                        {...register("alignment")}
+                        key={index}
+                        type="button"
+                        className={`p-2 ${
+                          field.value === item
+                            ? "bg-main-blue"
+                            : "bg-main-blue/30"
+                        } text-white rounded-md text-xs border-white w-[5rem] capitalize`}
+                        onClick={() => field.onChange(item)}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              />
+            </div>
+          </div>
+
+          <div className="">
+            <label className="text-xs font-[montserrat] font-bold">Color</label>
+
+            <br />
+            <div className="flex gap-2 ">
+              <input
+                type="color"
+                {...register("color")}
+                className="cursor-pointer h-[2.3rem] w-[5rem] "
+              />
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="mt-4">
-        {/* Color */}
-        <label className="text-xs font-[montserrat] mt-8 font-bold">
-          Color
-        </label>
-        <div className="flex gap-2 ">
+        {/* <div className="mt-4">
+          
+
           <Controller
             name="color"
             control={control}
@@ -93,7 +107,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
               </div>
             )}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

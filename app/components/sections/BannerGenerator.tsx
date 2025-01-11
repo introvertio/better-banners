@@ -20,9 +20,7 @@ export default function BannerGenerator() {
   const brandName = watch("BrandName");
   const alignment = watch("alignment");
   const color = watch("color");
-  // console.log(brandName, alignment,color);
- 
-
+  // console.log(brandName, alignment, color);
 
   return (
     <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative">
@@ -47,19 +45,8 @@ export default function BannerGenerator() {
                     : alignment == "right"
                     ? "text-right justify-end"
                     : "text-center justify-center"
-                } ${
-                  color === "skyblue"
-                    ? "text-sky-500"
-                    : color === "yellow"
-                    ? "text-yellow-500"
-                    : color === "deeppink"
-                    ? "text-pink-600"
-                    : color === "indigo"
-                    ? "text-indigo-500"
-                    : color === "darkorange"
-                    ? "text-orange-600"
-                    : "text-black"
                 }`}
+                style={{ color: color }}
               >
                 {brandName}
               </h1>
