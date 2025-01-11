@@ -1,10 +1,16 @@
 "use client";
-import React, {Suspense} from "react";
+import React, { Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { StepOne } from "../formSteps/StepOne";
 import { StepTwo } from "../formSteps/StepTwo";
 import { StepThree } from "../formSteps/StepThree";
 import { StepFour } from "../formSteps/StepFour";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Scrollbar } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 export default function BannerGenerator() {
   const { control, register, handleSubmit, watch } = useForm({
     defaultValues: {
@@ -15,7 +21,6 @@ export default function BannerGenerator() {
       backgroundColor: "#ffffff",
     },
   });
-  const steps = 1;
   const brandName = watch("BrandName");
   const alignment = watch("alignment");
   const color = watch("color");
@@ -38,18 +43,27 @@ export default function BannerGenerator() {
             >
               <div></div>
               <h1
-                className={`
+                style={{ fontSize: `${watch("fontSize")}px` }}
+                className={` 
                   ${
-                  alignment == "left"
-                    ? "text-left justify-start"
-                    : alignment == "right"
-                    ? "text-right justify-end"
-                    : "text-center justify-center"
-                } w-full  z-10  ${color =="skyblue"? "text-sky-500":
-                    color=== "yellow"? "text-yellow-500":
-                    color ==="deeppink" ? "text-pink-600":
-                    color ==="indigo"? "text-indigo-500":
-                    color ==="darkorange"? "text-orange-600":"text-black"}`}
+                    alignment == "left"
+                      ? "text-left justify-start"
+                      : alignment == "right"
+                      ? "text-right justify-end"
+                      : "text-center justify-center"
+                  } w-full  z-10  ${
+                  color == "skyblue"
+                    ? "text-sky-500"
+                    : color === "yellow"
+                    ? "text-yellow-500"
+                    : color === "deeppink"
+                    ? "text-pink-600"
+                    : color === "indigo"
+                    ? "text-indigo-500"
+                    : color === "darkorange"
+                    ? "text-orange-600"
+                    : "text-black"
+                } leading-loose`}
               >
                 {brandName}
               </h1>
@@ -60,20 +74,39 @@ export default function BannerGenerator() {
           <div>{/* banner-size  */}</div>
         </div>
         <div className="basis-1/3">
-        <Suspense fallback={<div>Loading...</div>}>
-          {/* form  */}
-          <form onSubmit={handleSubmit((data) => console.log(data))}>
-            {steps == 1 ? (
-              <StepOne control={control} register={register} />
-            ) : steps == 2 ? (
-              <StepTwo />
-            ) : steps == 3 ? (
-              <StepThree />
-            ) : steps == 4 ? (
-              <StepFour />
-            ) : null}
-          </form>
-        </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Swiper
+              className="w-[40svw] p-4"
+              modules={[Scrollbar]}
+              spaceBetween={10}
+              slidesPerView={1}
+              
+              pagination={{ clickable: false }}
+              scrollbar={{ draggable: false }}
+              onSwiper={(swiper) => console.log(swiper)}
+              onSlideChange={() => console.log("slide change")}
+            >
+              <form onSubmit={handleSubmit((data) => console.log(data))}>
+                <SwiperSlide>
+                  <StepOne control={control} register={register} />
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <StepTwo />
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <StepThree />
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <StepFour />
+                </SwiperSlide>
+              </form>
+             
+            </Swiper>
+            {/* form  */}
+          </Suspense>
         </div>
       </div>
     </section>

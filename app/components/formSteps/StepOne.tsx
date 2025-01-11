@@ -51,7 +51,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
         </div>
       </div>
       <div className="mt-4">
-        <label className="text-xs font-[montserrat] " >Colors</label>
+        <label className="text-xs font-[montserrat] ">Text Color</label>
         <Controller
           name="color"
           control={control}
@@ -83,6 +83,33 @@ export const StepOne = ({ control, register }: StepOneProps) => {
             </div>
           )}
         />
+      </div>
+      <div className="">
+        <div className="relative my-6">
+          <label htmlFor="fontSize" className="sr-only">
+            fontSize
+          </label>
+          <input
+            {...register("fontSize")}
+            type="range"
+            // value="1000"
+            min="30"
+            max="100"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
+            aA
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
+            30px
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
+            70px
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
+            aA
+          </span>
+        </div>
       </div>
     </>
   );
