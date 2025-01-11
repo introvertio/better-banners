@@ -16,10 +16,13 @@ export default function BannerGenerator() {
     },
   });
   const steps = 1;
+
   const brandName = watch("BrandName");
   const alignment = watch("alignment");
   const color = watch("color");
-  console.log(brandName, alignment, color);
+  // console.log(brandName, alignment,color);
+ 
+
 
   return (
     <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative">
