@@ -1,4 +1,3 @@
-
 import Hero from "./components/sections/Hero";
 import BannerGenerator from "./components/sections/BannerGenerator";
 
@@ -13,5 +12,6 @@ export default function Home() {
         <BannerGenerator />
       </section>
     </main>
+   
   );
 }

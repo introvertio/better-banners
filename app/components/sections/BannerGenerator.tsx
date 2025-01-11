@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {Suspense} from "react";
 import { useForm } from "react-hook-form";
 import { StepOne } from "../formSteps/StepOne";
 import { StepTwo } from "../formSteps/StepTwo";
@@ -60,6 +60,7 @@ export default function BannerGenerator() {
           <div>{/* banner-size  */}</div>
         </div>
         <div className="basis-1/3">
+        <Suspense fallback={<div>Loading...</div>}>
           {/* form  */}
           <form onSubmit={handleSubmit((data) => console.log(data))}>
             {steps == 1 ? (
@@ -72,6 +73,7 @@ export default function BannerGenerator() {
               <StepFour />
             ) : null}
           </form>
+        </Suspense>
         </div>
       </div>
     </section>
