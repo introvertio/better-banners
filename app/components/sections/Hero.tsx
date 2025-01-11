@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Button";
+// import { Button } from "../Button";
 import Image from "next/image";
 import github from "@/public/github.svg";
 export default function Hero() {
@@ -10,10 +10,10 @@ export default function Hero() {
       }}
       className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start  lg:px-8 px-4"
     >
-      <div className="relative flex flex-col items-center justify-center mt-4">
+      <div className="relative flex flex-col items-center justify-center mt-2">
         <h1 className="lg:text-7xl text-4xl font-black text-white font-[michroma] text-balance text-center lg:leading-[5rem] leading-[3.5rem]">
           Create{" "}
-          <span className="font-[montserrat] inline-block bg-black px-4 py-1 rounded-lg drop-shadow-3xl transition-all duration-300 hover:bg-black/70 font-black">
+          <span className="font-[montserrat] inline-block bg-black/30 px-4 py-1 rounded-lg drop-shadow-3xl transition-all duration-300 hover:bg-black font-black">
             Stunning
           </span>{" "}
           Social Banners
@@ -45,12 +45,19 @@ export default function Hero() {
         </div>
       </div>
       <div className="py-8  items-center gap-6 justify-center lg:justify-start">
+        {/* preview */}
+        <div className="w-full bg-transparent backdrop-blur-3xl rounded-md aspect-[3/1] border border-white/10 shadow-lg overflow-hidden">
+          <div>sjdkjsdksjdksjdk</div>
+          <div>sjdkjsdksjdksjdk</div>
+          <div>sjdkjsdksjdksjdk</div>
+        </div>
+
         {/* Primary CTA Button */}
-        <Button
+        {/* <Button
           text="Start Creating"
           href="#bannerGenerate"
           className="bg-black py-3 px-8 ring-white ring-1 rounded-full hover:bg-black/30 hover:text-white transition-all duration-300 text-white font-medium w-full mb-3 font-[michroma] text-sm"
-        />
+        /> */}
 
         {/* Feature badges */}
         <div className=" flex gap-4 my-3 justify-center">
@@ -73,12 +80,12 @@ export default function Hero() {
         </div>
       </div>
       {/* brand logo */}
-      <div className="flex absolute top-5 font-extrabold items-center">
+      {/* <div className="flex absolute top-5 font-extrabold items-center">
         <h1>
           <span className="rounded-full text-4xl ">β</span>
         </h1>
         <small className=" text-sm">etter Banner</small>
-      </div>
+      </div> */}
       {/* <small className="font-bold absolute bottom-10 text-sm">
         Scroll and start generating your banner!
       </small> */}

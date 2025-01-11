@@ -10,12 +10,12 @@ export const StepOne = ({ control, register }: StepOneProps) => {
   return (
     <>
       <div>
-        <label className="text-xs font-[montserrat] dark:text-white text-black ">
+        <label className="text-xs font-[montserrat] text-black ">
           Brand Name
         </label>
         <input
           type="text"
-          className="border dark:border-none rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
+          className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
           placeholder="Enter your name"
           {...register("BrandName", {
             required: "This field is required",
@@ -49,6 +49,40 @@ export const StepOne = ({ control, register }: StepOneProps) => {
             )}
           />
         </div>
+      </div>
+      <div className="mt-4">
+        <label className="text-xs font-[montserrat] " >Colors</label>
+        <Controller
+          name="color"
+          control={control}
+          render={({ field }) => (
+            <div className="flex gap-8 ">
+              {[
+                "skyblue",
+                "yellow",
+                "deeppink",
+                "indigo",
+                "darkorange",
+                "black",
+              ].map((item, index) => (
+                <div
+                  {...register("color")}
+                  key={index}
+                  type="button"
+                  className={`p-2 rounded-full h-10 w-10  text-white text-xs border-white cursor-pointer`}
+                  onClick={() => field.onChange(item)}
+                  style={{ backgroundColor: item }}
+                >
+                  {field.value === item && (
+                    <span className="text-white inline-flex font-bold text-xl justify-center items-center ">
+                      ✔
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        />
       </div>
     </>
   );
