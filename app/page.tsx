@@ -1,41 +1,50 @@
-// import Hero from "./components/sections/Hero";
+import Image from "next/image";
+import Hero from "./components/sections/Hero";
 import BannerGenerator from "./components/sections/BannerGenerator";
-import { supremeFont } from "./components/styling/font-classes";
-import RichCustomizationIcon from "../svgs/rcustom.svg";
-import ExportIcon from "../svgs/export.svg";
-import StandoutIcon from "../svgs/standout.svg";
+import {
+  bespokeFont,
+  cabinetFont,
+  chillaxFont,
+  supremeFont,
+} from "./components/styling/font-classes";
+import RichCustomizationIcon from "@/svgs/rcustom.svg";
+import ExportIcon from "@/svgs/export.svg";
+import StandoutIcon from "@/svgs/standout.svg";
 
 export default function Home() {
   return (
     <main className="h-svh w-svw overflow-y-scroll overflow-x-hidden snap-y snap-mandatory ">
-      <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative bg-main-blue">
-        <div className="flex flex-col gap-5 items-center justify-center w-full max-w-2xl p-3">
-          <h1 className="text-[45px] [line-height:_1.25] md:text-[60px] font-black">
-            Create Your Social Banner With{" "}
-            <span className="px-3 p-1 bg-white text-black -z-40  rounded-md ring-4 ring-black underline decoration-4 decoration-main-blue underline-offset-4">
-              Style
-            </span>{" "}
-            In Minutes
+      <section
+        className={`h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full ${cabinetFont} relative bg-main-blue `}
+      >
+        <div
+          className="flex flex-col gap-5 items-start
+         justify-center p-3"
+        >
+          <h1 className="text-[70px] [line-height:_.7] md:text-[90px] font-black text-main-blue [text-shadow:_-4px_4px_0px_#ffffff]">
+            SOCIAL
           </h1>
-          <div
-            className={`flex flex-row flex-wrap gap-3 items-center justify-center md:justify-between w-full ${supremeFont} font-bold text-sm md:text-base`}
+          <h1 className="text-[70px] [line-height:_.7] md:text-[90px] font-black text-main-blue [text-shadow:_-4px_4px_0px_#ffffff]">
+            BANNERS
+          </h1>
+          <p
+            className={` ${supremeFont} font-bold text-xl md:text-3xl mr-auto`}
           >
-            <div className="group animate-bounce transition-all bg-black hover:bg-white hover:text-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
-              <RichCustomizationIcon className="group-hover:invert transition-all" />
-              <p>Rich Customization</p>
-            </div>
-            <div className="group animate-bounce transition-all bg-black hover:bg-white hover:text-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
-              <ExportIcon className="group-hover:invert transition-all" />
-              <p>One-click Export</p>
-            </div>
-            <div className="group animate-bounce transition-all bg-black hover:bg-white hover:text-black flex flex-row gap-2 items-center justify-center p-3 rounded-md">
-              <StandoutIcon className="group-hover:invert transition-all" />
-              <p>Stand out</p>
-            </div>
+            for
+          </p>
+        </div>
+        <div className="w-full flex flex-col gap-4 items-center justify-center">
+          <div className="w-full aspect-[820/310] bg-white flex flex-col items-center justify-center max-w-2xl  text-black font-bold">
+            <p className=" text-xl ">Dynamically Generated Banner</p>
+            <small className="text-center">
+              (Text below will be changing and so will the banner)
+            </small>
           </div>
-          <div className="w-full aspect-[820/310] bg-white flex flex-col"></div>
-          <br />
-          <br />
+          <h2
+            className={`text-[55px] [line-height:_.7] md:text-[80px] font-black `}
+          >
+            DEVELOPERS
+          </h2>
         </div>
       </section>
       <section id="bannerGenerate">
