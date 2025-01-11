@@ -10,6 +10,8 @@ import {
 import RichCustomizationIcon from "@/svgs/rcustom.svg";
 import ExportIcon from "@/svgs/export.svg";
 import StandoutIcon from "@/svgs/standout.svg";
+import GitHub from "@/svgs/github.svg";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -46,6 +48,16 @@ export default function Home() {
             DEVELOPERS
           </h2>
         </div>
+        <br />
+
+        <a
+          target="_blank"
+          href="https://github.com/introvertio/better-banners/"
+          className="text-white text-xs font-bold flex flex-row gap-2 items-center justify-center bg-black rounded-full active:scale-105 transition-all px-4 py-2"
+        >
+          <GitHub />
+          Open Source
+        </a>
       </section>
       <section id="bannerGenerate">
         <BannerGenerator />
