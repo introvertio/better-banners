@@ -18,7 +18,8 @@ export default function BannerGenerator() {
   const steps = 1;
   const brandName = watch("BrandName");
   const alignment = watch("alignment");
-  console.log(brandName, alignment);
+  const color = watch("color");
+  console.log(brandName, alignment, color);
 
   return (
     <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative">
@@ -28,7 +29,7 @@ export default function BannerGenerator() {
       <div className="flex flex-col lg:flex-row gap-4 w-full justify-around px-8">
         <div className="flex items-center-justify-center relative basis-[50%]">
           {/* preview */}
-          <div className=" w-full h-64 bg-white basis-auto text-black p-8 rounded border dark:border-none dark:bg-gray-50 relative shadow-lg overflow-hidden">
+          <div className=" w-full aspect-[820/310] bg-white basis-auto text-black p-8 rounded border dark:border-none dark:bg-gray-50 relative shadow-lg overflow-hidden">
             <span className="absolute -left-5 top-2 px-4 font-[montserrat] text-sm -rotate-45 bg-main-blue dark:bg-main-blue/30 text-white z-0">
               Preview
             </span>
@@ -43,7 +44,19 @@ export default function BannerGenerator() {
                     : alignment == "right"
                     ? "text-right justify-end"
                     : "text-center justify-center"
-                } text-red-800 text-left`}
+                } ${
+                  color === "skyblue"
+                    ? "text-sky-500"
+                    : color === "yellow"
+                    ? "text-yellow-500"
+                    : color === "deeppink"
+                    ? "text-pink-600"
+                    : color === "indigo"
+                    ? "text-indigo-500"
+                    : color === "darkorange"
+                    ? "text-orange-600"
+                    : "text-black"
+                }`}
               >
                 {brandName}
               </h1>

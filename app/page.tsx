@@ -1,10 +1,9 @@
-
 // import Hero from "./components/sections/Hero";
 import BannerGenerator from "./components/sections/BannerGenerator";
 import { supremeFont } from "./components/styling/font-classes";
-import RichCustomizationIcon from "@/svgs/rcustom.svg";
-import ExportIcon from "@/svgs/export.svg";
-import StandoutIcon from "@/svgs/standout.svg";
+import RichCustomizationIcon from "../svgs/rcustom.svg";
+import ExportIcon from "../svgs/export.svg";
+import StandoutIcon from "../svgs/standout.svg";
 
 export default function Home() {
   return (

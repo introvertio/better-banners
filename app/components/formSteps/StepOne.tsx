@@ -10,7 +10,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
   return (
     <>
       <div>
-        <label className="text-xs font-[montserrat] dark:text-white text-black ">
+        <label className="text-xs font-[montserrat] dark:text-white text-black font-bold">
           Brand Name
         </label>
         <input
@@ -29,7 +29,9 @@ export const StepOne = ({ control, register }: StepOneProps) => {
       </div>
       <div>
         {/* placement */}
-        <label className="text-xs font-[montserrat] mt-8">Position</label>
+        <label className="text-xs font-[montserrat] mt-8 font-bold">
+          Position
+        </label>
         <div className="flex gap-2 ">
           <Controller
             name="alignment"
@@ -48,6 +50,45 @@ export const StepOne = ({ control, register }: StepOneProps) => {
                   >
                     {item}
                   </button>
+                ))}
+              </div>
+            )}
+          />
+        </div>
+      </div>
+      <div className="mt-4">
+        {/* Color */}
+        <label className="text-xs font-[montserrat] mt-8 font-bold">
+          Color
+        </label>
+        <div className="flex gap-2 ">
+          <Controller
+            name="color"
+            control={control}
+            render={({ field }) => (
+              <div className="flex gap-8 ">
+                {[
+                  "skyblue",
+                  "yellow",
+                  "deeppink",
+                  "indigo",
+                  "darkorange",
+                  "black",
+                ].map((item, index) => (
+                  <div
+                    {...register("color")}
+                    key={index}
+                    type="button"
+                    className={`p-2 rounded-full h-10 w-10  text-white text-xs border-white cursor-pointer`}
+                    onClick={() => field.onChange(item)}
+                    style={{ backgroundColor: item }}
+                  >
+                    {field.value === item && (
+                      <span className="text-white inline-flex font-bold text-xl justify-center items-center ">
+                        ✔
+                      </span>
+                    )}
+                  </div>
                 ))}
               </div>
             )}
