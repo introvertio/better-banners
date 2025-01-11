@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Michroma } from "next/font/google";
+import { Geist, Geist_Mono, Michroma, Montserrat } from "next/font/google";
 import "./globals.css";
 import { bespokeFont } from "./components/styling/font-classes";
 
@@ -10,6 +10,10 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 const michroma = Michroma({
@@ -31,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bespokeFont} antialiased dark:bg-black dark:text-white`}
+        className={`${geistSans.variable} ${michroma.variable} ${geistMono.variable} ${montserrat.variable} ${bespokeFont} antialiased dark:bg-black dark:text-white`}
         suppressHydrationWarning={true}
       >
         {children}

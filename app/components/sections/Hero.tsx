@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="relative flex flex-col items-center justify-center mt-4">
         <h1 className="lg:text-7xl text-4xl font-black text-white font-[michroma] text-balance text-center lg:leading-[5rem] leading-[3.5rem]">
           Create{" "}
-          <span className="inline-block bg-black/50 px-4 py-1 rounded-lg drop-shadow-3xl transition-all duration-300 hover:bg-black/70 font-black ">
+          <span className="font-[montserrat] inline-block bg-black px-4 py-1 rounded-lg drop-shadow-3xl transition-all duration-300 hover:bg-black/70 font-black">
             Stunning
           </span>{" "}
           Social Banners
@@ -49,7 +49,7 @@ export default function Hero() {
         <Button
           text="Start Creating"
           href="#bannerGenerate"
-          className="bg-black/50 py-3 px-8 ring-white ring-1 rounded-full hover:bg-black hover:text-white transition-all duration-300 text-white font-medium w-full mb-3 font-[michroma] text-sm"
+          className="bg-black py-3 px-8 ring-white ring-1 rounded-full hover:bg-black/30 hover:text-white transition-all duration-300 text-white font-medium w-full mb-3 font-[michroma] text-sm"
         />
 
         {/* Feature badges */}
@@ -72,16 +72,16 @@ export default function Hero() {
           </div> */}
         </div>
       </div>
-
-      <small className="font-bold absolute top-5 text-sm">
-        <span className="">
-          Better{" "}
-        </span>
-        Banner
-      </small>
-      <small className="font-bold absolute bottom-10 text-sm">
+      {/* brand logo */}
+      <div className="flex absolute top-5 font-extrabold items-center">
+        <h1>
+          <span className="rounded-full text-4xl ">β</span>
+        </h1>
+        <small className=" text-sm">etter Banner</small>
+      </div>
+      {/* <small className="font-bold absolute bottom-10 text-sm">
         Scroll and start generating your banner!
-      </small>
+      </small> */}
     </section>
   );
 }
