@@ -4,13 +4,14 @@ import { Controller } from "react-hook-form";
 interface StepOneProps {
   register: any;
   control: any;
+  handleEvent: (e: number) => void;
 }
 
-export const StepOne = ({ control, register }: StepOneProps) => {
+export const StepOne = ({ control, register, handleEvent }: StepOneProps) => {
   return (
     <>
       <div>
-        <label className="text-xs font-[montserrat] dark:text-white text-black font-bold">
+        <label className="text-xs dark:text-white text-black font-bold">
           Brand Name
         </label>
         <input
@@ -27,12 +28,10 @@ export const StepOne = ({ control, register }: StepOneProps) => {
           maxLength={20}
         />
 
-        <div className="flex gap-2 items-center mt-8">
+        <div className="flex gap-2 items-center mt-6">
           <div>
             {/* placement */}
-            <label className="text-xs font-[montserrat]  font-bold">
-              Position
-            </label>
+            <label className="text-xs  font-bold">Position</label>
             <div className="flex gap-2 ">
               <Controller
                 name="alignment"
@@ -61,9 +60,8 @@ export const StepOne = ({ control, register }: StepOneProps) => {
           </div>
 
           <div className="">
-            <label className="text-xs font-[montserrat] font-bold">Color</label>
+            <label className="text-xs font-bold">Text Color</label>
 
-            <br />
             <div className="flex gap-2 ">
               <input
                 type="color"
@@ -73,6 +71,28 @@ export const StepOne = ({ control, register }: StepOneProps) => {
             </div>
           </div>
         </div>
+
+        <div className="my-4 ">
+          <label htmlFor="fontSize" className="text-sm font-bold ">
+            Font Size
+          </label>
+          <div>
+            <input
+              type="range"
+              {...register("fontSize")}
+              min={20}
+              max={34}
+              className="before:dark:text-white after:dark:text-black relative before:content-['f'] before:absolute after:absolute before:top-4 after:top-4  after:-right-3 after:content-['F'] h-[4rem] w-[12rem] after:text-lg after:font-[monserrat] before:font-[monserrat] before:font-bold after:font-bold"
+            />
+          </div>
+        </div>
+
+        <p
+          className="text-sm text-right cursor-pointer"
+          onClick={() => handleEvent(2)}
+        >
+          Next {">"}
+        </p>
         {/* <div className="mt-4">
           
 
