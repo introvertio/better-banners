@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { useForm } from "react-hook-form";
 import { StepOne } from "../formSteps/StepOne";
 import { StepTwo } from "../formSteps/StepTwo";
 import { StepThree } from "../formSteps/StepThree";
 import { StepFour } from "../formSteps/StepFour";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -25,7 +26,21 @@ export default function BannerGenerator() {
   const alignment = watch("alignment");
   const color = watch("color");
   console.log(brandName, alignment, color);
+  const [swiper, setSwiper] = useState<any>(null);
+  const [currentStep, setCurrentStep] = useState(0);
+  const totalSteps = 4;
 
+  const handleNext = () => {
+    if (swiper && currentStep < totalSteps - 1) {
+      swiper.slideNext();
+    }
+  };
+
+  const handlePrev = () => {
+    if (swiper && currentStep > 0) {
+      swiper.slidePrev();
+    }
+  };
   return (
     <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative">
       {/* <h1 className="text-2xl font-black text-white">
@@ -39,7 +54,7 @@ export default function BannerGenerator() {
               Preview
             </span>
             <div
-              className={` flex flex-col mt-4 text-4xl font-black capitalize  my-6 text-balance  text-black z-10 w-full`}
+              className={` flex flex-col mt-4 text-4xl font-black capitalize  my-6 text-balance  text-black z-10 w-full justify-center items-center`}
             >
               <div></div>
               <h1
@@ -63,7 +78,7 @@ export default function BannerGenerator() {
                     : color === "darkorange"
                     ? "text-orange-600"
                     : "text-black"
-                } leading-loose`}
+                } leading-normal`}
               >
                 {brandName}
               </h1>
@@ -74,39 +89,80 @@ export default function BannerGenerator() {
           <div>{/* banner-size  */}</div>
         </div>
         <div className="basis-1/3">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Swiper
-              className="w-[40svw] p-4"
-              modules={[Scrollbar]}
-              spaceBetween={10}
-              slidesPerView={1}
-              
-              pagination={{ clickable: false }}
-              scrollbar={{ draggable: false }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
+          <Swiper
+            className="lg:w-[42svw] lg:h-[30svw] p-4 relative"
+            modules={[Pagination, Navigation]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{
+              type: "progressbar",
+              el: ".swiper-pagination",
+            }}
+            onSwiper={(swiper: any) => setSwiper(swiper)}
+            onSlideChange={(s) => setCurrentStep(s.activeIndex)}
+          >
+            <form
+              onSubmit={handleSubmit((data) => console.log(data))}
+              className="relative"
             >
-              <form onSubmit={handleSubmit((data) => console.log(data))}>
-                <SwiperSlide>
+              <SwiperSlide>
+                <div className="">
                   <StepOne control={control} register={register} />
-                </SwiperSlide>
+                </div>
+              </SwiperSlide>
 
-                <SwiperSlide>
-                  <StepTwo />
-                </SwiperSlide>
+              <SwiperSlide>
+                <StepTwo />
+              </SwiperSlide>
 
-                <SwiperSlide>
-                  <StepThree />
-                </SwiperSlide>
+              <SwiperSlide>
+                <StepThree />
+              </SwiperSlide>
 
-                <SwiperSlide>
-                  <StepFour />
-                </SwiperSlide>
-              </form>
-             
-            </Swiper>
-            {/* form  */}
-          </Suspense>
+              <SwiperSlide>
+                <StepFour />
+              </SwiperSlide>
+
+              <div className="flex justify-between lg:-mt-6 px-4">
+                <button
+                  type="button"
+                  onClick={() => handlePrev}
+                  className={`
+            px-6 py-2 rounded-md transition-all
+            ${
+              currentStep === 0
+                ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                : "bg-white text-main-blue border-2 border-main-blue hover:bg-main-blue/10"
+            }
+          `}
+                  disabled={currentStep === 0}
+                >
+                  Back
+                </button>
+
+                {currentStep === totalSteps - 1 ? (
+                  <button
+                    type="submit"
+                    className="px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all"
+                  >
+                    Generate Banner
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => handleNext}
+                    className="px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all"
+                  >
+                    Next
+                  </button>
+                )}
+              </div>
+            </form>
+          </Swiper>
+          <div className="swiper-pagination" />
+          {/* form  */}
+          {/* </Suspense> */}
         </div>
       </div>
     </section>

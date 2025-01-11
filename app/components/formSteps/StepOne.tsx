@@ -4,15 +4,14 @@ import { Controller } from "react-hook-form";
 interface StepOneProps {
   register: any;
   control: any;
+  handleClick?: (e: number) => void;
 }
 
 export const StepOne = ({ control, register }: StepOneProps) => {
   return (
-    <>
+    <div className="font-[montserrat]">
       <div>
-        <label className="text-xs font-[montserrat] text-black ">
-          Brand Name
-        </label>
+        <label className="text-xs  text-black ">Brand Name</label>
         <input
           type="text"
           className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
@@ -25,7 +24,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
       </div>
       <div>
         {/* placement */}
-        <label className="text-xs font-[montserrat] mt-8">Position</label>
+        <label className="text-xs  mt-8">Position</label>
         <div className="flex gap-2 ">
           <Controller
             name="alignment"
@@ -51,7 +50,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
         </div>
       </div>
       <div className="mt-4">
-        <label className="text-xs font-[montserrat] ">Text Color</label>
+        <label className="text-xs  ">Text Color</label>
         <Controller
           name="color"
           control={control}
@@ -86,13 +85,12 @@ export const StepOne = ({ control, register }: StepOneProps) => {
       </div>
       <div className="">
         <div className="relative my-6">
-          <label htmlFor="fontSize" className="sr-only">
+          <label htmlFor="fontSize" className="text-sm">
             fontSize
           </label>
           <input
             {...register("fontSize")}
             type="range"
-            // value="1000"
             min="30"
             max="100"
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
@@ -111,6 +109,6 @@ export const StepOne = ({ control, register }: StepOneProps) => {
           </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };

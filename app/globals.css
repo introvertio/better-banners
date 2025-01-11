@@ -5,8 +5,22 @@
 * {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  
 }
-html, body{
-    overflow-x: hidden;
+html,
+body {
+  overflow-x: hidden;
 }
+/* .swiper-pagination-progressbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: #007aff;
+  border-radius: 2px;
+} */
