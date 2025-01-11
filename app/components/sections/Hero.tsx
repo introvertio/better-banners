@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../Button";
 import Image from "next/image";
-import github from "@/public/github.svg";
+import github from "../../..svgs/github.svg";
 export default function Hero() {
   return (
     <section
