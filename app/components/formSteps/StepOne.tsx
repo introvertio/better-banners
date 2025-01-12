@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 import { Controller } from "react-hook-form";
-interface StepOneProps {
-  register: any;
-  control: any;
-  handleClick?: (e: number) => void;
-}
+import {StepProps} from "../../types/useType"
 
-export const StepOne = ({ control, register }: StepOneProps) => {
+
+export const StepOne = ({ control, register }: StepProps) => {
   return (
     <div className="font-[montserrat]">
       <div>
-        <label className="text-xs  text-black ">Brand Name</label>
+        <label className="text-xs  text-black font-semibold">Brand Name</label>
         <input
           type="text"
           className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
@@ -24,8 +21,8 @@ export const StepOne = ({ control, register }: StepOneProps) => {
       </div>
       <div>
         {/* placement */}
-        <label className="text-xs  mt-8">Position</label>
-        <div className="flex gap-2 ">
+        <label className="text-xs  mt-8 font-semibold">Position</label>
+        <div className="flex gap-2 my-3">
           <Controller
             name="alignment"
             control={control}
@@ -50,7 +47,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
         </div>
       </div>
       <div className="mt-4">
-        <label className="text-xs  ">Text Color</label>
+        <label className="text-xs font-semibold">Text Color</label>
         <Controller
           name="color"
           control={control}
@@ -68,7 +65,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
                   {...register("color")}
                   key={index}
                   type="button"
-                  className={`p-2 rounded-full h-10 w-10  text-white text-xs border-white cursor-pointer`}
+                  className={`p-2 my-3 rounded-full h-10 w-10  text-white text-xs border-white cursor-pointer`}
                   onClick={() => field.onChange(item)}
                   style={{ backgroundColor: item }}
                 >
@@ -85,7 +82,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
       </div>
       <div className="">
         <div className="relative my-6">
-          <label htmlFor="fontSize" className="text-xs">
+          <label htmlFor="fontSize" className="text-xs font-semibold">
             Font Size
           </label>
           <input
@@ -93,7 +90,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
             type="range"
             min="30"
             max="100"
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
           />
           <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
             aA
@@ -104,7 +101,7 @@ export const StepOne = ({ control, register }: StepOneProps) => {
           <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
             70px
           </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6 font-semibold">
             aA
           </span>
         </div>

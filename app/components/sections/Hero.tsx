@@ -46,14 +46,20 @@ export default function Hero() {
       </div>
       <div className="py-8  items-center gap-6 justify-center lg:justify-start w-1/2">
         {/* preview */}
-        <div className="w-full bg-transparent backdrop-blur-3xl rounded-md aspect-[3/1] border border-white/10 shadow-2xl overflow-hidden p-8 flex flex-col gap-4 text-white text-sm relative">
-          <div>Brand Logo</div>
-          <div className="text-4xl text-center font-[montserrat]">
-            Web Development
+        <div className="w-full max-w-4xl backdrop-blur-sm bg-white/10 dark:bg-black/20 relative flex items-center justify-center rounded-xl aspect-[3/1] overflow-hidden border border-white/20 p-8 shadow-xl flex-col font-[montserrat] text-white">
+          {/* Radial gradient overlay with softer transition */}
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_40%,rgba(1,30,160,10))]">
+            {/* Dot pattern with reduced opacity */}
+            <div className="absolute inset-0 bg-dot-black"></div>
+            <div className="absolute inset-0 bg-grid-small-main-blue/40"></div>
           </div>
-          <div className="text-center">I like to create things on the web</div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-slate-500 dark:from-black/30 " />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-slate-500 dark:from-black/30" />
+
+          <p className="text-4xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 py-4">
+            Web Developer
+          </p>
+          <p className="text-white/90 relative z-20 text-xs">
+            I like to create things on the web
+          </p>
         </div>
 
         {/* Feature badges */}

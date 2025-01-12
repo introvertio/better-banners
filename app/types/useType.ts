@@ -1,3 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+export type StepProps={
+  register: any;
+  control: any;
+  watch?:any;
+  handleClick?: (e: number) => void;
+}
+
 
 export interface BrandChoice {
   id: string; 
