@@ -44,7 +44,7 @@ export const StepOne = ({ control, register, handleEvent }: StepOneProps) => {
                         field.value === item
                           ? "bg-main-blue"
                           : "bg-main-blue/30"
-                      } text-white rounded-md text-xs border-white capitalize w-full`}
+                      } text-white rounded-md text-sm border-white capitalize w-full h-10`}
                       onClick={() => field.onChange(item)}
                     >
                       {item}

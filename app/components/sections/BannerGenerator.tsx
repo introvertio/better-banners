@@ -32,7 +32,10 @@ export default function BannerGenerator() {
         <div className="flex items-center-justify-center relative basis-[50%] flex-col">
           {/* preview */}
           <div className="flex flex-col gap-1 rounded-md bg-main-blue p-2 md:p-4">
-            <small className="font-bold text-white">Live preview</small>
+            <small className="font-bold text-white flex flex-row gap-1 items-center">
+              <span>Live preview</span>
+              <span className="size-4 bg-white rounded-full animate-pulse transition-all"></span>
+            </small>
             <div className=" w-full flex flex-col items-center justify-start aspect-[820/310] bg-white p-2 rounded-sm">
               <h1
                 className={` w-full ${
