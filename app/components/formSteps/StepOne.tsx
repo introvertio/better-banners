@@ -85,8 +85,8 @@ export const StepOne = ({ control, register }: StepOneProps) => {
       </div>
       <div className="">
         <div className="relative my-6">
-          <label htmlFor="fontSize" className="text-sm">
-            fontSize
+          <label htmlFor="fontSize" className="text-xs">
+            Font Size
           </label>
           <input
             {...register("fontSize")}

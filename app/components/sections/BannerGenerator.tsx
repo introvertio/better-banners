@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { StepOne } from "../formSteps/StepOne";
 import { StepTwo } from "../formSteps/StepTwo";
@@ -8,6 +8,7 @@ import { StepThree } from "../formSteps/StepThree";
 import { StepFour } from "../formSteps/StepFour";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Button } from "../Button";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -46,7 +47,7 @@ export default function BannerGenerator() {
       {/* <h1 className="text-2xl font-black text-white">
         Start Generating Better Banners
       </h1> */}
-      <div className="flex flex-col lg:flex-row gap-4 w-full justify-around px-8">
+      <div className="flex flex-col lg:flex-row gap-6 w-full justify-around lg:px-8 px-4 items-center">
         <div className="flex items-center-justify-center relative basis-[50%]">
           {/* preview */}
           <div className=" w-full h-64 bg-white basis-auto text-black p-8 rounded border dark:border-none dark:bg-gray-50 relative shadow-lg overflow-hidden">
@@ -88,10 +89,12 @@ export default function BannerGenerator() {
 
           <div>{/* banner-size  */}</div>
         </div>
-        <div className="basis-1/3">
-          {/* <Suspense fallback={<div>Loading...</div>}> */}
+        <form
+          className="basis-[50%] "
+          onSubmit={handleSubmit((data) => console.log(data))}
+        >
           <Swiper
-            className="lg:w-[42svw] lg:h-[30svw] p-4 relative"
+            className="lg:w-[35svw] lg:h-[30svw] lg:mx-8 relative z-10 w-[90svw]"
             modules={[Pagination, Navigation]}
             spaceBetween={30}
             slidesPerView={1}
@@ -102,10 +105,7 @@ export default function BannerGenerator() {
             onSwiper={(swiper: any) => setSwiper(swiper)}
             onSlideChange={(s) => setCurrentStep(s.activeIndex)}
           >
-            <form
-              onSubmit={handleSubmit((data) => console.log(data))}
-              className="relative"
-            >
+            <div className="relative">
               <SwiperSlide>
                 <div className="">
                   <StepOne control={control} register={register} />
@@ -123,47 +123,46 @@ export default function BannerGenerator() {
               <SwiperSlide>
                 <StepFour />
               </SwiperSlide>
+            </div>
 
-              <div className="flex justify-between lg:-mt-6 px-4">
-                <button
+            <div className="flex justify-between lg:mt-[-3rem] px-4 z-20  lg:absolute bottom-0  w-full">
+              <div>
+                <Button
                   type="button"
-                  onClick={() => handlePrev}
+                  text="Back"
                   className={`
             px-6 py-2 rounded-md transition-all
             ${
               currentStep === 0
                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                : "bg-white text-main-blue border-2 border-main-blue hover:bg-main-blue/10"
+                : "bg-white text-main-blue border-2 border-main-blue hover:bg-main-blue/10 hover:cursor-pointer"
             }
           `}
+                  handleClick={handlePrev}
                   disabled={currentStep === 0}
-                >
-                  Back
-                </button>
+                />
+              </div>
 
+              <div>
                 {currentStep === totalSteps - 1 ? (
-                  <button
+                  <Button
                     type="submit"
-                    className="px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all"
-                  >
-                    Generate Banner
-                  </button>
+                    className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all hover:cursor-pointer cursor-pointer`}
+                    text="Generate Banner"
+                  />
                 ) : (
-                  <button
+                  <Button
                     type="button"
-                    onClick={() => handleNext}
-                    className="px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all"
-                  >
-                    Next
-                  </button>
+                    handleClick={handleNext}
+                    className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 hover:cursor-pointer transition-all cursor-pointer`}
+                    text="Next"
+                  />
                 )}
               </div>
-            </form>
+            </div>
           </Swiper>
           <div className="swiper-pagination" />
-          {/* form  */}
-          {/* </Suspense> */}
-        </div>
+        </form>
       </div>
     </section>
   );
