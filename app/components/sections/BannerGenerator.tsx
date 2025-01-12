@@ -49,6 +49,9 @@ export default function BannerGenerator() {
               >
                 {brandName}
               </h1>
+              <>{/* Skills container */}</>
+              <>{/* Socials container */}</>
+              <>{/* Tools/Stack container */}</>
             </div>
           </div>
 
