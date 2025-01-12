@@ -18,7 +18,9 @@ export default function Hero() {
         <h1 className="text-[70px] [line-height:_.7] md:text-[90px] font-black text-main-blue [text-shadow:_-4px_4px_0px_#ffffff]">
           BANNERS
         </h1>
-        <p className={` ${supremeFont} font-bold text-lg md:text-2xl mr-auto`}>
+        <p
+          className={` ${supremeFont} font-bold text-lg md:text-2xl mr-auto text-white`}
+        >
           for
         </p>
       </div>
