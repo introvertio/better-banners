@@ -1,5 +1,12 @@
 import React from "react";
 
+interface Brand {
+  value: string;
+  font_size: number;
+  font_weight: number;
+  alignment: "left" | "center" | "right";
+}
+
 export default function DynamicBannerNSkills() {
   return (
     <div className="w-full flex flex-col gap-4 items-center justify-center text-white">
