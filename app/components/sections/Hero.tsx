@@ -13,9 +13,9 @@ export default function Hero() {
       <div className="relative flex flex-col items-center justify-center mt-[6rem]">
         <h1 className="lg:text-7xl text-4xl font-black text-white font-[michroma] text-balance text-center lg:leading-[5rem] leading-[3.5rem]">
           Create{" "}
-          <span className="font-[montserrat] inline-block bg-black/30 px-4 py-1 rounded-lg drop-shadow-3xl transition-all duration-300 hover:bg-black/70 font-black">
+          <div className="font-[montserrat] inline-block bg-black/30 px-4 py-1 rounded-lg drop-shadow-3xl transition-all duration-300 hover:bg-black/70 font-black">
             Stunning
-          </span>{" "}
+          </div>{" "}
           Social Banners
         </h1>
         <h1 className="text-sm font-semibold text-white py-3 text-center lg:text-start">
@@ -57,14 +57,11 @@ export default function Hero() {
           <p className="text-4xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 py-4">
             Web Developer
           </p>
-          <p className="text-white/90 relative z-20 text-xs">
+          <p className="text-white/90 relative z-20 text-xs mb-5">
             I like to create things on the web
           </p>
-        </div>
 
-        {/* Feature badges */}
-        <div className=" flex gap-4 my-3 justify-center">
-          <div className="flex items-center gap-2 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 ">
+          <div className="  flex items-center gap-2  backdrop-blur-md px-4 py-1 rounded-full bg-black/20">
             <Image src={github} alt="github" className="text-white h-5 w-5" />
             <a
               href="https://github.com/introvertio/better-banners/"
@@ -73,6 +70,19 @@ export default function Hero() {
               Open Source
             </a>
           </div>
+        </div>
+
+        {/* Feature badges */}
+        <div className=" flex gap-4 my-3 justify-center">
+          {/* <div className="flex items-center gap-2 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 ">
+            <Image src={github} alt="github" className="text-white h-5 w-5" />
+            <a
+              href="https://github.com/introvertio/better-banners/"
+              className="text-white text-xs font-medium"
+            >
+              Open Source
+            </a>
+          </div> */}
 
           {/* <div className="flex items-center gap-2 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
             🌟

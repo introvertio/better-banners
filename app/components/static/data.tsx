@@ -43,6 +43,16 @@ export interface Profession {
   tools: Tool[];
   description: string;
 }
+export const bannerSizes = {
+  facebook: { width: 1200, height: 630 }, // Facebook Cover Photo
+  twitter: { width: 1500, height: 300 }, // Twitter Header Photo
+  linkedin: { width: 1128, height: 376 }, // LinkedIn Company Page Cover
+  instagram: { width: 1080, height: 566 }, // Instagram Story Highlight Cover
+  youtube: { width: 2560, height: 1440 }, // YouTube Channel Art
+  pinterest: { width: 1000, height: 1500 }, // Pinterest Pin Image
+  tiktok: { width: 1080, height: 1920 }, // TikTok Video Thumbnail
+  snapchat: { width: 1080, height: 1920 }, // Snapchat Geofilter
+};
 
 export const PROFESSIONS: Profession[] = [
   {
@@ -172,4 +182,3 @@ export const getToolsForProfession = (
     ).flatMap((prof) => prof.tools) || []
   );
 };
-

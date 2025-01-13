@@ -64,6 +64,7 @@ export const StepTwo = ({ control, register }: StepProps) => {
                 "indigo",
                 "darkorange",
                 "black",
+                "whitesmoke"
               ].map((item, index) => (
                 <div
                   {...register("descriptionColor")}
@@ -90,25 +91,19 @@ export const StepTwo = ({ control, register }: StepProps) => {
           <label htmlFor="descriptionSize" className="text-xs font-semibold">
             Font Size
           </label>
-          <input
-            {...register("descriptionSize")}
-            type="range"
-            min="30"
-            max="100"
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
-          />
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
-            aA
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-            30px
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-            70px
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6 font-semibold">
-            aA
-          </span>
+          <div className="flex gap-2">
+            <i className="text-sm font-medium inline-block">aA</i>
+
+            <input
+              {...register("descriptionSize")}
+              type="range"
+              min="0"
+              max="3"
+              step="0.1"
+              className="w-full  h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
+            />
+            <i className="text-xl font-medium">aA</i>
+          </div>
         </div>
         <div className="relative my-6">
           <label htmlFor="fontHeight" className="text-xs font-semibold">
@@ -117,11 +112,11 @@ export const StepTwo = ({ control, register }: StepProps) => {
           <input
             {...register("fontHeight")}
             type="range"
-            min="30"
-            max="100"
+            min="2"
+            max="10"
+            step="2"
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
           />
-          
         </div>
       </div>
     </div>

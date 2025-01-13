@@ -1,8 +1,6 @@
-
 "use client";
 import { Controller } from "react-hook-form";
-import {StepProps} from "../../types/useType"
-
+import { StepProps } from "../../types/useType";
 
 export const StepOne = ({ control, register }: StepProps) => {
   return (
@@ -34,8 +32,10 @@ export const StepOne = ({ control, register }: StepProps) => {
                     key={index}
                     type="button"
                     className={`p-2 ${
-                      field.value === item ? "bg-main-blue" : "bg-main-blue/30"
-                    } text-white rounded-md text-xs border-white w-[5rem] capitalize`}
+                      field.value === item
+                        ? "bg-main-blue text-white"
+                        : "bg-main-blue/10 hover:bg-main-blue/20"
+                    } text-gray-700 rounded-md text-xs border-white w-[5rem] capitalize`}
                     onClick={() => field.onChange(item)}
                   >
                     {item}
@@ -60,12 +60,13 @@ export const StepOne = ({ control, register }: StepProps) => {
                 "indigo",
                 "darkorange",
                 "black",
+                "whitesmoke"
               ].map((item, index) => (
                 <div
                   {...register("color")}
                   key={index}
                   type="button"
-                  className={`p-2 my-3 rounded-full h-10 w-10  text-white text-xs border-white cursor-pointer`}
+                  className={`p-2 my-3 lg:rounded-full rounded-lg h-10 w-10  text-white text-xs border-white cursor-pointer`}
                   onClick={() => field.onChange(item)}
                   style={{ backgroundColor: item }}
                 >
@@ -85,25 +86,19 @@ export const StepOne = ({ control, register }: StepProps) => {
           <label htmlFor="fontSize" className="text-xs font-semibold">
             Font Size
           </label>
-          <input
-            {...register("fontSize")}
-            type="range"
-            min="30"
-            max="100"
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
-          />
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
-            aA
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-            30px
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-            70px
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6 font-semibold">
-            aA
-          </span>
+          <div className="flex gap-2">
+            <i className="text-sm font-medium inline-block">aA</i>
+
+            <input
+              {...register("fontSize")}
+              type="range"
+              min="1"
+              max="5"
+              step="0.1"
+              className="w-full  h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
+            />
+            <i className="text-xl font-medium">aA</i>
+          </div>
         </div>
       </div>
     </div>
