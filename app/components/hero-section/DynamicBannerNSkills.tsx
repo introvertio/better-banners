@@ -1,7 +1,16 @@
 import React from "react";
 
 interface Brand {
+  font: string;
   value: string;
+  font_size: number;
+  font_weight: number;
+  alignment: "left" | "center" | "right";
+}
+
+interface SkillsRDescription {
+  font: string;
+  value: string | [string];
   font_size: number;
   font_weight: number;
   alignment: "left" | "center" | "right";
