@@ -22,29 +22,29 @@ export default function Hero() {
           Design eye-catching social media banners in minutes with our intuitive
           generator
         </h1>
-        <div className="absolute left-4 top-10 lg:left-20 lg:top-20 transform hover:-translate-y-1 transition-all duration-300 hidden lg:block">
+      </div>
+      <div className="py-8  items-center gap-6 justify-center lg:justify-start lg:w-1/2 relative">
+        <div className="animate-bounce hover:animate-none duration-700 delay-[750ms] ease-in z-30 absolute  lg:left-5 lg:top-5 transform hover:-translate-y-1 transition-all  hidden lg:block">
           <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-xl rounded-xl px-4 py-2 border border-white/10 shadow-lg hover:shadow-purple-500/20">
             <span className="text-white font-medium tracking-wide text-xs">
               Custom Template
             </span>
           </div>
         </div>
-        <div className="absolute right-4 top-10 lg:right-20 lg:top-20 transform hover:-translate-y-1 transition-all duration-300 hidden lg:block">
+        <div className=" animate-bounce hover:animate-none  delay-300 ease-in-out z-30 absolute lg:-right-14 lg:bottom-10 transform hover:-translate-y-1 transition-all duration-[600ms] hidden lg:block">
           <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-xl rounded-xl px-4 py-2 border border-white/10 shadow-lg hover:shadow-blue-500/20">
             <span className="text-white font-medium tracking-wide text-xs">
               Rich Customization
             </span>
           </div>
         </div>
-        <div className="absolute top-0   right-[5%] -translate-x-1/2 lg:bottom-20 transform hover:-translate-y-1 transition-all duration-300 hidden lg:block">
+        <div className="animate-bounce hover:animate-none z-30 delay-[800ms] ease-out absolute top-10  right-[3%] -translate-x-1/2 lg:bottom-20 transform hover:-translate-y-1 transition-all duration-[900ms] hidden lg:block">
           <div className="bg-gradient-to-r from-cyan-500/20 to-teal-500/20 backdrop-blur-xl rounded-xl px-4 py-2 border border-white/10 shadow-lg hover:shadow-cyan-500/20">
             <span className="text-white font-medium tracking-wide text-xs">
               One-click Export
             </span>
           </div>
         </div>
-      </div>
-      <div className="py-8  items-center gap-6 justify-center lg:justify-start w-1/2">
         {/* preview */}
         <div className="w-full sm:max-w-full md:max-w-screen-md lg:max-w-screen-lg backdrop-blur-sm bg-white/10 dark:bg-black/20 relative flex items-center justify-center rounded-xl aspect-[3/1] overflow-hidden border border-white/20 p-8 shadow-xl flex-col font-[montserrat] text-white">
           {/* Radial gradient overlay with softer transition */}

@@ -20,6 +20,16 @@ export default {
       colors: {
         "main-blue": "#011ea0ff",
       },
+      aspectRatio: {
+        "facebook-cover": "851 / 315", // Facebook Cover Photo
+        "twitter-cover": "1500 / 500", // Twitter Cover Photo
+        "instagram-square": "1 / 1", // Instagram Square Post
+        "instagram-portrait": "4 / 5", // Instagram Portrait Post
+        "instagram-story": "9 / 16", // Instagram Story
+        "youtube-thumbnail": "16 / 9", // YouTube Thumbnail
+        "linkedin-cover": "1128 / 191", // LinkedIn Cover Photo
+        "pinterest-pin": "2 / 3", // Pinterest Pin
+      },
     },
   },
   plugins: [
@@ -82,9 +92,6 @@ export default {
       </svg>`
             )}")`,
           }),
-      
-
- 
 
           "bg-microchip": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(

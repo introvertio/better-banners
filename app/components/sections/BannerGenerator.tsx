@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { StepOne } from "../formSteps/StepOne";
 import { StepTwo } from "../formSteps/StepTwo";
 import { StepThree } from "../formSteps/StepThree";
-import { bannerSizes } from "../static/data";
+// import { bannerSizes } from "../static/data";
 import { Modal } from "../Modal";
 import { StepFour } from "../formSteps/StepFour";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,18 +36,10 @@ export default function BannerGenerator() {
       colorEnd: "",
       selectedGradientType: "linear",
       patterns: "bg-dot-black",
-      selectedBanner: "twitter",
+      selectedBanner: "aspect-linkedin-cover",
       tools: [] as JSX.Element[],
     },
   });
-
-  // "grid",
-  //   "small-grid",
-  //   "dot",
-  //   "diagonal-lines",
-  //   "bg-cross",
-  //   "wave",
-  //   "circle",
 
   const alignment = watch("alignment");
   const descriptionAlignment = watch("descriptionAlignment");
@@ -63,10 +55,6 @@ export default function BannerGenerator() {
   const [data, setdata] = useState<any>();
   const [modalState, setModalState] = useState<boolean>(false);
   const totalSteps = 4;
-  type BannerType = keyof typeof bannerSizes;
-  const currentBanner: BannerType =
-    (watch("selectedBanner") as BannerType) || "twitter";
-  const { width, height } = bannerSizes[currentBanner];
 
   const handleNext = () => {
     if (swiper && currentStep < totalSteps - 1) {
@@ -128,8 +116,6 @@ export default function BannerGenerator() {
           className="lg:max-w-4xl max-2xl flex-col flex gap-4"
         >
           <Preview
-            width={width}
-            height={height}
             gradientStyles={gradientStyles}
             selectedGradientTypes={selectedGradientTypes}
             patternList={patternList}
@@ -138,36 +124,56 @@ export default function BannerGenerator() {
             descriptionColor={descriptionColor}
             alignment={alignment}
             descriptionAlignment={descriptionAlignment}
+            bannerPreview={watch("selectedBanner")}
           />
           <Button
             type="button"
-            className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all hover:cursor-pointer cursor-pointer`}
+            className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all hover:cursor-pointer cursor-pointer pt-4`}
             text="Download Banner"
             handleClick={() => handleDownload}
           />
         </Modal>
       )}
       <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative lg:px-8 px-4">
-        {/* <h1 className="text-2xl font-black text-white">
-        Start Generating Better Banners
-      </h1> */}
         <div className="flex flex-col lg:flex-row gap-6 w-full justify-around items-center">
-          <div
-            className="flex  relative basis-[50%] overflow-hidden"
-            // style={{ width: `${width / 2}px`, height: `${height / 2}px` }}
-          >
-            <Preview
-              width={width}
-              height={height}
-              gradientStyles={gradientStyles}
-              selectedGradientTypes={selectedGradientTypes}
-              patternList={patternList}
-              watch={watch}
-              color={color}
-              descriptionColor={descriptionColor}
-              alignment={alignment}
-              descriptionAlignment={descriptionAlignment}
-            />
+          <div className="flex  relative basis-[50%] overflow-hidden">
+            {/* <Swiper
+              className="lg:w-[40svw] lg:h-[35svw] lg:mx-8 relative z-10 w-[90svw]"
+              modules={[Pagination, Navigation]}
+              spaceBetween={30}
+              slidesPerView={1}
+              pagination={{ type: "bullets" }}
+              onSwiper={(swiper) => {
+                setValue(
+                  "selectedBanner",
+                  bannerSizes[swiper.activeIndex]?.name
+                );
+              }}
+              onSlideChange={(swiper) => {
+                setValue(
+                  "selectedBanner",
+                  bannerSizes[swiper.activeIndex]?.name
+                );
+              }}
+            > */}
+              
+                {/* {bannerSizes.map((val) => ( */}
+                  <div  className="relative">
+                    <Preview
+                      gradientStyles={gradientStyles}
+                      selectedGradientTypes={selectedGradientTypes}
+                      patternList={patternList}
+                      watch={watch}
+                      color={color}
+                      descriptionColor={descriptionColor}
+                      alignment={alignment}
+                      descriptionAlignment={descriptionAlignment}
+                      bannerPreview={watch("selectedBanner")}
+                    />
+                  </div>
+                {/* ))} */}
+            
+            {/* </Swiper> */}
           </div>
           <form
             className="basis-[50%]"
