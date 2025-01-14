@@ -126,7 +126,7 @@ export default function BannerGenerator() {
             type="button"
             className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all hover:cursor-pointer cursor-pointer pt-4`}
             text="Download Banner"
-            handleClick={() => handleDownload}
+            handleClick={handleDownload}
           />
         </Modal>
       )}
@@ -152,23 +152,23 @@ export default function BannerGenerator() {
                 );
               }}
             > */}
-              
-                {/* {bannerSizes.map((val) => ( */}
-                  {/* <div  className="relative"> */}
-                    <Preview
-                      gradientStyles={gradientStyles}
-                      selectedGradientTypes={selectedGradientTypes}
-                      patternList={patternList}
-                      watch={watch}
-                      color={color}
-                      descriptionColor={descriptionColor}
-                      alignment={alignment}
-                      descriptionAlignment={descriptionAlignment}
-                      bannerPreview={watch("selectedBanner")}
-                    />
-                  {/* </div> */}
-                {/* ))} */}
-            
+
+            {/* {bannerSizes.map((val) => ( */}
+            {/* <div  className="relative"> */}
+            <Preview
+              gradientStyles={gradientStyles}
+              selectedGradientTypes={selectedGradientTypes}
+              patternList={patternList}
+              watch={watch}
+              color={color}
+              descriptionColor={descriptionColor}
+              alignment={alignment}
+              descriptionAlignment={descriptionAlignment}
+              bannerPreview={watch("selectedBanner")}
+            />
+            {/* </div> */}
+            {/* ))} */}
+
             {/* </Swiper> */}
           </div>
           <form
@@ -176,7 +176,7 @@ export default function BannerGenerator() {
             onSubmit={handleSubmit(
               (data) => {
                 setdata(data);
-                setModalState(!modalState);
+                setModalState(!modalState)
               },
               (error) => {
                 console.log(error);

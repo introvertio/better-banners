@@ -11,14 +11,7 @@ export const StepOne = ({ control, register }: StepProps) => {
           type="text"
           className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
           placeholder="Enter your name"
-          {...register("BrandName", {
-            required: "This field is required",
-            maxLength: {
-              value: 20,
-              message: "Max length is 20",
-            },
-          })}
-          maxLength={20}
+          {...register("BrandName")}
         />
       </div>
       <div>
