@@ -10,13 +10,10 @@ interface StepOneProps {
 export const StepOne = ({ control, register, handleEvent }: StepOneProps) => {
   return (
     <>
-      <div>
-        <label className="text-xs dark:text-white text-black font-bold">
-          Brand Name
-        </label>
+      <div className="flex flex-col w-full items-center justify-center gap-4">
         <input
           type="text"
-          className="border dark:border-none rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
+          className="rounded-lg w-full p-3 outline-none bg-black bg-opacity-20 font-semibold text-black placeholder:text-white placeholder:text-opacity-50"
           placeholder="Enter your name"
           {...register("BrandName", {
             required: "This field is required",
@@ -28,71 +25,70 @@ export const StepOne = ({ control, register, handleEvent }: StepOneProps) => {
           maxLength={20}
         />
 
-        <div className="flex gap-2 items-center mt-6">
-          <div>
-            {/* placement */}
-            <label className="text-xs  font-bold">Position</label>
-            <div className="flex gap-2 ">
-              <Controller
-                name="alignment"
-                control={control}
-                render={({ field }) => (
-                  <div className="flex gap-2">
-                    {["left", "center", "right"].map((item, index) => (
-                      <button
-                        {...register("alignment")}
-                        key={index}
-                        type="button"
-                        className={`p-2 ${
-                          field.value === item
-                            ? "bg-main-blue"
-                            : "bg-main-blue/30"
-                        } text-white rounded-md text-xs border-white w-[5rem] capitalize`}
-                        onClick={() => field.onChange(item)}
-                      >
-                        {item}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              />
-            </div>
-          </div>
+        <div className="mx-auto flex flex-col items-center justify-center gap-3 w-full">
+          {/* placement */}
 
-          <div className="">
-            <label className="text-xs font-bold">Text Color</label>
-
-            <div className="flex gap-2 ">
-              <input
-                type="color"
-                {...register("color")}
-                className="cursor-pointer h-[2.3rem] w-[5rem] "
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="my-4 ">
-          <label htmlFor="fontSize" className="text-sm font-bold ">
-            Font Size
-          </label>
-          <div>
-            <input
-              type="range"
-              {...register("fontSize")}
-              min={20}
-              max={34}
-              className="before:dark:text-white after:dark:text-black relative before:content-['f'] before:absolute after:absolute before:top-4 after:top-4  after:-right-3 after:content-['F'] h-[4rem] w-[12rem] after:text-lg after:font-[monserrat] before:font-[monserrat] before:font-bold after:font-bold"
+          <div className="flex flex-col items-center justify-center gap-1 w-full ">
+            <label className="text-xs  font-bold mr-auto">Text Alignment</label>
+            <Controller
+              name="alignment"
+              control={control}
+              render={({ field }) => (
+                <div className="flex flex-row gap-2 w-full">
+                  {["left", "center", "right"].map((item, index) => (
+                    <button
+                      {...register("alignment")}
+                      key={index}
+                      type="button"
+                      className={`p-2 ${
+                        field.value === item
+                          ? "bg-main-blue"
+                          : "bg-main-blue/30"
+                      } text-white rounded-md text-sm border-white capitalize w-full h-10`}
+                      onClick={() => field.onChange(item)}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              )}
             />
           </div>
+
+          <div className="flex flex-col w-full items-center gap-1 justify-center">
+            <label className="text-xs font-bold mr-auto">Text Color</label>
+            <input
+              type="color"
+              {...register("color")}
+              className=" w-full h-10 rounded-md transition-all"
+            />
+          </div>
+          <div className="flex flex-col gap-1 w-full items-center justify-center">
+            <p className="text-xs font-bold  mr-auto">Font Size</p>
+            <div className="flex flex-row gap-1 items-center justify-between w-full">
+              <div className="rounded-full size-10 bg-black bg-opacity-20 flex items-center justify-center">
+                <p className="text-sm font-bold">F</p>
+              </div>
+              <input
+                type="range"
+                {...register("fontSize")}
+                min={20}
+                max={34}
+                className=" w-[70%] h-10 rounded-md"
+              />
+              <div className="rounded-full size-10 bg-black bg-opacity-20 flex items-center justify-center">
+                <p className="text-3xl font-bold">F</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <p
-          className="text-sm text-right cursor-pointer"
+        <button
+          className=" font-bold bg-main-blue text-lg w-1/2 h-12 ml-auto text-white text-right p-2 rounded-md pr-8 transition-all active:scale-90"
           onClick={() => handleEvent(2)}
         >
-          Next {">"}
-        </p>
+          Next
+        </button>
         {/* <div className="mt-4">
           
 

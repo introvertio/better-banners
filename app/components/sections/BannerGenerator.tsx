@@ -28,19 +28,17 @@ export default function BannerGenerator() {
       {/* <h1 className="text-2xl font-black text-white">
         Start Generating Better Banners
       </h1> */}
-      <div className="flex flex-col lg:flex-row gap-4 w-full justify-around px-8">
+      <div className="flex flex-col lg:flex-row gap-4 w-full justify-around px-2  md:px-8">
         <div className="flex items-center-justify-center relative basis-[50%] flex-col">
           {/* preview */}
-          <div className=" w-full aspect-[820/310] bg-white basis-auto text-black p-8 rounded border dark:border-none dark:bg-gray-50 relative shadow-lg overflow-hidden">
-            <span className="absolute -left-5 top-2 px-4 font-[montserrat] text-sm -rotate-45 bg-main-blue dark:bg-main-blue/30 text-white z-0">
-              Preview
-            </span>
-            <div
-              className={` flex flex-col mt-4 text-4xl font-black capitalize  my-6 text-balance  text-black z-10 w-full`}
-            >
-              <div></div>
+          <div className="flex flex-col gap-1 rounded-md bg-main-blue p-2 md:p-4">
+            <small className="font-bold text-white flex flex-row gap-1 items-center">
+              <span>Live preview</span>
+              <span className="size-4 bg-white rounded-full animate-pulse transition-all"></span>
+            </small>
+            <div className=" w-full flex flex-col items-center justify-start aspect-[820/310] bg-white p-2 rounded-sm">
               <h1
-                className={`${
+                className={` w-full ${
                   alignment == "left"
                     ? "text-left justify-start"
                     : alignment == "right"
@@ -51,11 +49,13 @@ export default function BannerGenerator() {
               >
                 {brandName}
               </h1>
-              <div></div>
+              <>{/* Skills container */}</>
+              <>{/* Socials container */}</>
+              <>{/* Tools/Stack container */}</>
             </div>
           </div>
 
-          <div className="my-4 p-4 dark:text-white w-full">
+          <div className=" p-4 w-full">
             {/* banner-size  */}
             <label htmlFor="resize">resize</label>
             <br />
