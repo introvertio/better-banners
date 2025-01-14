@@ -102,14 +102,14 @@ export default function BannerGenerator() {
     }
   };
 
-
+  
   return (
     <>
       {modalState && (
         <Modal
           handleEvent={() => setModalState(!modalState)}
           data={data}
-          className="lg:max-w-4xl max-2xl flex-col flex gap-4"
+          className={` max-2xl flex-col flex gap-4 w-fit`}
         >
           <Preview
             gradientStyles={gradientStyles}
@@ -176,7 +176,7 @@ export default function BannerGenerator() {
             onSubmit={handleSubmit(
               (data) => {
                 setdata(data);
-                setModalState(!modalState)
+                setModalState(!modalState);
               },
               (error) => {
                 console.log(error);

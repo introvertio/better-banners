@@ -15,8 +15,8 @@ export const Modal = ({
   handleEvent,
   data,
 }: ModalProps) => {
-  // save daata in browser storage
-  localStorage.setItem("bannerData", data);
+  // TODO: save data in browser local storage
+
 
   return (
     <div className="fixed top-0 left-0 backdrop-blur-xl bg-black bg-opacity-50 w-screen h-screen flex justify-center items-center z-50">

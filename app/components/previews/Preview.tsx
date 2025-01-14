@@ -28,7 +28,7 @@ export const Preview = ({
   bannerPreview,
 }: PreviewProps) => {
   return (
-    <div className="flex  relative w-full h-full">
+    <div className="flex  relative w-full h-full justify-center">
       {/* preview */}
       <div
         id="banner-preview"
@@ -36,7 +36,7 @@ export const Preview = ({
           background: gradientStyles[selectedGradientTypes],
         }}
         className={clsx(
-          "bg-white w-full text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
+          "bg-white w-fit  text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
           bannerPreview
         )}
       >
