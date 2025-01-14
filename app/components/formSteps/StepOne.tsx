@@ -26,41 +26,27 @@ export const StepOne = ({ control, register }: StepProps) => {
         <label className="text-xs  mt-8 font-semibold">Position</label>
         <div className="flex gap-2 my-3">
           <Controller
-            name="color"
+            name="alignment"
             control={control}
             render={({ field }) => (
-              <div className="flex gap-8 ">
-                {[
-                  "skyblue",
-                  "yellow",
-                  "deeppink",
-                  "indigo",
-                  "darkorange",
-                  "black",
-                ].map((item, index) => (
-                  <div
-                    {...register("color")}
+              <div className="flex gap-2">
+                {["left", "center", "right"].map((item, index) => (
+                  <button
+                    {...register("alignment")}
                     key={index}
                     type="button"
                     className={`p-2 ${
-                      field.value === item
-                        ? "bg-main-blue text-white"
-                        : "bg-main-blue/10 hover:bg-main-blue/20"
-                    } text-gray-700 rounded-md text-xs border-white w-[5rem] capitalize`}
+                      field.value === item ? "bg-main-blue" : "bg-main-blue/30"
+                    } text-white rounded-md text-xs border-white w-[5rem] capitalize`}
                     onClick={() => field.onChange(item)}
-                    style={{ backgroundColor: item }}
                   >
-                    {field.value === item && (
-                      <span className="text-white inline-flex font-bold text-xl justify-center items-center ">
-                        ✔
-                      </span>
-                    )}
-                  </div>
+                    {item}
+                  </button>
                 ))}
               </div>
             )}
           />
-        </div> 
+        </div>
       </div>
       <div className="mt-4">
         <label className="text-xs font-semibold">Text Color</label>
@@ -76,7 +62,7 @@ export const StepOne = ({ control, register }: StepProps) => {
                 "indigo",
                 "darkorange",
                 "black",
-                "whitesmoke"
+                "whitesmoke",
               ].map((item, index) => (
                 <div
                   {...register("color")}

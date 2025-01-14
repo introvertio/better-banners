@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
+"use client";
 import React, { JSX } from "react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -28,7 +28,7 @@ export const Preview = ({
   bannerPreview,
 }: PreviewProps) => {
   return (
-    <div className="flex  relative ">
+    <div className="flex  relative w-full h-full">
       {/* preview */}
       <div
         id="banner-preview"
@@ -36,7 +36,7 @@ export const Preview = ({
           background: gradientStyles[selectedGradientTypes],
         }}
         className={clsx(
-          "  bg-white w-full text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
+          "bg-white w-full text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
           bannerPreview
         )}
       >
@@ -61,7 +61,7 @@ export const Preview = ({
                 )
               )}
 
-              <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+              <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black/20 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
             </div>
           )}
           <div className="w-full relative h-full">

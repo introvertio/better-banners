@@ -1,6 +1,6 @@
 import React from 'react'
-import Image from "next/image";
-import github from "@/public/github.svg";
+import { FaGithub } from 'react-icons/fa6';
+
 export const DynamicPreview = () => {
   return (
     <div className="w-full sm:max-w-full md:max-w-screen-md lg:max-w-screen-lg backdrop-blur-sm bg-white/10 dark:bg-black/20 relative flex items-center justify-center rounded-xl aspect-[3/1] overflow-hidden border border-white/20 p-8 shadow-xl flex-col font-[montserrat] text-white">
@@ -19,7 +19,7 @@ export const DynamicPreview = () => {
           </p>
 
           <div className="  flex items-center gap-2  backdrop-blur-md px-4 py-1 rounded-full bg-black/20">
-            <Image src={github} alt="github" className="text-white h-5 w-5" />
+            <FaGithub className="text-white h-5 w-5" />
             <a
               href="https://github.com/introvertio/better-banners/"
               className="text-white text-xs font-medium"

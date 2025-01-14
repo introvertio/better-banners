@@ -1,6 +1,7 @@
 import Hero from "./components/sections/Hero";
-import {Hero2} from "./components/sections/Hero2"
+
 import BannerGenerator from "./components/sections/BannerGenerator";
+import Hero2 from "./components/sections/Hero2";
 
 export default function Home() {
   return (
