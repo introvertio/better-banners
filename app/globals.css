@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 @font-face {
   font-family: "BespokeStencil-Variable";
   src: url("../fonts/BespokeStencil-Variable.woff2") format("woff2"),
@@ -63,3 +64,14 @@
   font-display: swap;
   font-style: normal;
 }
+
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+
+
