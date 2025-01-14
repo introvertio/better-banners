@@ -92,7 +92,7 @@ export default function BannerGenerator() {
 
   const { downloadElementAsImage } = useDownload();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  
   const handleDownload = async () => {
     try {
       await downloadElementAsImage("banner-preview", {
