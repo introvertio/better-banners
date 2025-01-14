@@ -1,17 +1,17 @@
-import Image from "next/image";
-import Hero from "./components/sections/Hero";
+// import Image from "next/image";
+// import Hero from "./components/sections/Hero";
 import BannerGenerator from "./components/sections/BannerGenerator";
 import {
-  bespokeFont,
+  // bespokeFont,
   cabinetFont,
-  chillaxFont,
+  // chillaxFont,
   supremeFont,
 } from "./components/styling/font-classes";
-import RichCustomizationIcon from "@/svgs/rcustom.svg";
-import ExportIcon from "@/svgs/export.svg";
-import StandoutIcon from "@/svgs/standout.svg";
-import GitHub from "@/svgs/github.svg";
-import Link from "next/link";
+// import RichCustomizationIcon from "@/svgs/rcustom.svg";
+// import ExportIcon from "@/svgs/export.svg";
+// import StandoutIcon from "@/svgs/standout.svg";
+// import GitHub from "../svgs/github.svg";
+// import Link from "next/link";
 
 export default function Home() {
   return (
@@ -55,7 +55,7 @@ export default function Home() {
           href="https://github.com/introvertio/better-banners/"
           className="text-white text-xs font-bold flex flex-row gap-2 items-center justify-center bg-black rounded-full active:scale-105 transition-all px-4 py-2"
         >
-          <GitHub />
+          {/* <GitHub /> */}
           Open Source
         </a>
       </section>
