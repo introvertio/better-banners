@@ -28,7 +28,7 @@ export const Preview = ({
   bannerPreview,
 }: PreviewProps) => {
   return (
-    <div className="flex  relative  overflow-hidden ">
+    <div className="flex  relative ">
       {/* preview */}
       <div
         id="banner-preview"
@@ -36,7 +36,7 @@ export const Preview = ({
           background: gradientStyles[selectedGradientTypes],
         }}
         className={clsx(
-          "  bg-white w-full text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative overflow-hidden ",
+          "  bg-white w-full text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
           bannerPreview
         )}
       >
@@ -142,7 +142,7 @@ export const Preview = ({
         </div>
       </div>
 
-      <div>{/* banner-size  */}</div>
+      <div>{/* TODO: banner-size  */}</div>
     </div>
   );
 };

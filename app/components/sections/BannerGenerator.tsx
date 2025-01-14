@@ -10,13 +10,13 @@ import { Modal } from "../Modal";
 import { StepFour } from "../formSteps/StepFour";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { Preview } from "../Preview";
 import { Button } from "../Button";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useDownload } from "../../hooks/useDownload";
+import { Preview } from "../previews/Preview";
 
 export default function BannerGenerator() {
   const { control, register, handleSubmit, watch } = useForm({
@@ -158,7 +158,7 @@ export default function BannerGenerator() {
             > */}
               
                 {/* {bannerSizes.map((val) => ( */}
-                  <div  className="relative">
+                  {/* <div  className="relative"> */}
                     <Preview
                       gradientStyles={gradientStyles}
                       selectedGradientTypes={selectedGradientTypes}
@@ -170,7 +170,7 @@ export default function BannerGenerator() {
                       descriptionAlignment={descriptionAlignment}
                       bannerPreview={watch("selectedBanner")}
                     />
-                  </div>
+                  {/* </div> */}
                 {/* ))} */}
             
             {/* </Swiper> */}
