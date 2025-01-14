@@ -105,7 +105,6 @@ export default function BannerGenerator() {
     }
   };
 
-  // console.log(patternList);
 
   return (
     <>
