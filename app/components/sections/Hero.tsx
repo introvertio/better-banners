@@ -1,6 +1,6 @@
 import React from "react";
 import { cabinetFont, supremeFont } from "../styling/font-classes";
-import GitHub from "@/svgs/github.svg";
+// import GitHub from "@/svgs/github.svg";
 import DynamicBannerNSkills from "../hero-section/DynamicBannerNSkills";
 
 export default function Hero() {
@@ -32,7 +32,7 @@ export default function Hero() {
         href="https://github.com/introvertio/better-banners/"
         className="text-white text-xs font-bold flex flex-row gap-2 items-center justify-center bg-black rounded-full active:scale-105 transition-all px-4 py-2"
       >
-        <GitHub />
+        {/* <GitHub /> */}
         Open Source
       </a>
     </section>

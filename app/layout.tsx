@@ -36,6 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${michroma.variable} ${geistMono.variable} ${montserrat.variable} ${bespokeFont} antialiaseds`}
+
         suppressHydrationWarning={true}
       >
         {children}
