@@ -7,11 +7,10 @@ import { StepTwo } from "../formSteps/StepTwo";
 import { StepThree } from "../formSteps/StepThree";
 import { bannerSizes } from "../static/data";
 import { Modal } from "../Modal";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
 import { StepFour } from "../formSteps/StepFour";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Preview } from "../Preview";
 import { Button } from "../Button";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -36,11 +35,19 @@ export default function BannerGenerator() {
       colorStart: "",
       colorEnd: "",
       selectedGradientType: "linear",
-      patterns: [""],
+      patterns: "bg-dot-black",
       selectedBanner: "twitter",
       tools: [] as JSX.Element[],
     },
   });
+
+  // "grid",
+  //   "small-grid",
+  //   "dot",
+  //   "diagonal-lines",
+  //   "bg-cross",
+  //   "wave",
+  //   "circle",
 
   const alignment = watch("alignment");
   const descriptionAlignment = watch("descriptionAlignment");
@@ -53,6 +60,7 @@ export default function BannerGenerator() {
   const colorEnd = watch("colorEnd");
   const [swiper, setSwiper] = useState<any>(null);
   const [currentStep, setCurrentStep] = useState(0);
+  const [data, setdata] = useState<any>();
   const [modalState, setModalState] = useState<boolean>(false);
   const totalSteps = 4;
   type BannerType = keyof typeof bannerSizes;
@@ -94,10 +102,9 @@ export default function BannerGenerator() {
     "repeating-radial": `repeating-radial-gradient(circle, ${colorStart}, ${colorEnd} 10%, ${colorStart} 20%)`,
   };
 
-  
-
   const { downloadElementAsImage } = useDownload();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleDownload = async () => {
     try {
       await downloadElementAsImage("banner-preview", {
@@ -110,14 +117,34 @@ export default function BannerGenerator() {
     }
   };
 
-  console.log(selectedGradientTypes, patternList);
+  // console.log(patternList);
 
   return (
     <>
       {modalState && (
-        <Modal handleEvent={() => setModalState(!modalState)} className="">
-          <div>preview</div>
-          <div>Download Now</div>
+        <Modal
+          handleEvent={() => setModalState(!modalState)}
+          data={data}
+          className="lg:max-w-4xl max-2xl flex-col flex gap-4"
+        >
+          <Preview
+            width={width}
+            height={height}
+            gradientStyles={gradientStyles}
+            selectedGradientTypes={selectedGradientTypes}
+            patternList={patternList}
+            watch={watch}
+            color={color}
+            descriptionColor={descriptionColor}
+            alignment={alignment}
+            descriptionAlignment={descriptionAlignment}
+          />
+          <Button
+            type="button"
+            className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all hover:cursor-pointer cursor-pointer`}
+            text="Download Banner"
+            handleClick={() => handleDownload}
+          />
         </Modal>
       )}
       <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative lg:px-8 px-4">
@@ -129,119 +156,25 @@ export default function BannerGenerator() {
             className="flex  relative basis-[50%] overflow-hidden"
             // style={{ width: `${width / 2}px`, height: `${height / 2}px` }}
           >
-            {/* preview */}
-            <div
-              id="banner-preview"
-              style={{
-                background: gradientStyles[selectedGradientTypes],
-                width: `${width}px`,
-                height: `${height}px`,
-              }}
-              className={clsx(
-                "  bg-white basis-auto text-black p-8 rounded border dark:border-none dark:bg-gray-50 relative shadow-lg overflow-hidden"
-              )}
-            >
-              <span className="absolute -left-5 top-2 px-4 font-[montserrat] text-sm -rotate-45 bg-main-blue dark:bg-main-blue/30 text-white z-0">
-                Preview
-              </span>
-              <div
-                className={` flex flex-col mt-4 text-4xl font-black capitalize text-balance  text-black z-10 w-full justify-center items-center`}
-              >
-                {patternList.length > 0 && (
-                  <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-                    <div
-                      className={clsx(
-                        "absolute inset-0 opacity-50",
-                        ...patternList
-                      )}
-                    />
-                    <div className="[mask-image:radial-gradient(ellipse_at_center, transparent_40%, rgba(1,30,160,0.1))] absolute inset-0" />
-                  </div>
-                )}
-                <div className="w-full relative h-full">
-                  <h1
-                    style={{ fontSize: `${watch("fontSize")}rem` }}
-                    className={twMerge(
-                      clsx(
-                        "mt-4 w-full z-10 leading-[3rem]",
-                        {
-                          "text-left justify-start": alignment === "left",
-                          "text-right justify-end": alignment === "right",
-                          "text-center justify-center":
-                            !alignment || alignment === "center",
-                        },
-                        {
-                          "text-sky-500": color === "skyblue",
-                          "text-yellow-500": color === "yellow",
-                          "text-pink-600": color === "deeppink",
-                          "text-indigo-500": color === "indigo",
-                          "text-orange-600": color === "darkorange",
-                          "text-white":color === "whitesmoke",
-                          "text-black": !color,
-                        }
-                      )
-                    )}
-                  >
-                    {watch("BrandName")}
-                  </h1>
-
-                  <div
-                    style={{
-                      fontSize: `${watch("descriptionSize")}rem`,
-                      marginTop: `${watch("fontHeight")}rem`,
-                    }}
-                    className={twMerge(
-                      clsx(
-                        "text-sm w-full leading-snug flex flex-col ",
-                        {
-                          "text-left justify-start items-left":
-                            descriptionAlignment === "left",
-                          "text-right justify-end items-right":
-                            descriptionAlignment === "right",
-                          "text-center justify-center items-center":
-                            !descriptionAlignment ||
-                            descriptionAlignment === "center",
-                        },
-                        {
-                          "text-sky-500": descriptionColor === "skyblue",
-                          "text-yellow-500": descriptionColor === "yellow",
-                          "text-pink-600": descriptionColor === "deeppink",
-                          "text-indigo-500": descriptionColor === "indigo",
-                          "text-orange-600": descriptionColor === "darkorange",
-                          "text-white ":descriptionColor === "whitesmoke",
-                          "text-black": !descriptionColor,
-                        }
-                      )
-                    )}
-                  >
-                    {watch("description")}
-                    {/* <span className="text-sm">
-                      {Array.isArray(watch("skills"))
-                        ? watch("skills").join(" ")
-                        : typeof watch("skills") === "string"
-                        ? watch("skills")
-                        : "No skills listed"}
-                    </span> */}
-                    <span className="flex gap-4 my-4">
-                      {watch("tools")?.map((IconComponent, index) => (
-                        <span key={index} className="w-8 h-8 text-main-blue">
-                          {IconComponent}
-                        </span>
-                      ))}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>{/* banner-size  */}</div>
+            <Preview
+              width={width}
+              height={height}
+              gradientStyles={gradientStyles}
+              selectedGradientTypes={selectedGradientTypes}
+              patternList={patternList}
+              watch={watch}
+              color={color}
+              descriptionColor={descriptionColor}
+              alignment={alignment}
+              descriptionAlignment={descriptionAlignment}
+            />
           </div>
           <form
             className="basis-[50%]"
             onSubmit={handleSubmit(
               (data) => {
-                handleDownload();
-                console.log(data);
+                setdata(data);
+                setModalState(!modalState);
               },
               (error) => {
                 console.log(error);

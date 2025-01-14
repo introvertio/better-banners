@@ -13,13 +13,16 @@ export const StepFour = ({ control, register }: StepProps) => {
     "repeating-radial",
   ];
   const PatternType = [
-    "grid",
-    "small-grid",
-    "dot",
-    "diagonal-lines",
-    "bg-cross",
-    "wave",
-    "circle",
+    "bg-grid-black",
+    "bg-triangles-black",
+    "bg-dot-black",
+    "bg-diagonal-lines-black",
+    "bg-cross-black",
+    "bg-honeycomb-black",
+    "bg-circuit-black",
+    "bg-microchip-black",
+    "bg-matrix-black",
+    "bg-crosshatch-black",
   ];
   return (
     <div className="">
@@ -84,32 +87,33 @@ export const StepFour = ({ control, register }: StepProps) => {
             </label>
             <div className="flex gap-2 my-3">
               <Controller
-                name="petterns"
-                defaultValue={["Design"]}
+                name="patterns"
                 control={control}
                 render={({ field }) => (
                   <div className="flex gap-2 flex-wrap">
-                    {PatternType.map((pattern, index) => (
+                    {PatternType.map((patterns, index) => (
                       <button
                         {...register("patterns")}
                         key={index}
                         type="button"
                         className={`p-2 ${
-                          (field.value || []).includes(pattern) // Safely check includes
+                          (field.value || []).includes(patterns)
                             ? "bg-main-blue text-white"
-                            : "bg-main-blue/10 text-gray-700 hover:main-blue/30"
-                        }  rounded-md text-xs border-white w-auto px-4 capitalize `}
+                            : "bg-main-blue/10 hover:bg-main-blue/20"
+                        } text-gray-700 rounded-md text-xs border-white w-auto px-4 capitalize`}
                         onClick={() => {
-                          const currentValue = field.value || []; // Handle undefined value
-                          const updatedPatterns = currentValue.includes(pattern)
+                          const currentValue = field.value || [];
+                          const updatedPatterns = currentValue.includes(
+                            patterns
+                          )
                             ? currentValue.filter(
-                                (item: string) => item !== pattern
+                                (item: string) => item !== patterns
                               )
-                            : [...currentValue, pattern];
+                            : [...currentValue, patterns];
                           field.onChange(updatedPatterns);
                         }}
                       >
-                        {pattern}
+                        {patterns}
                       </button>
                     ))}
                   </div>

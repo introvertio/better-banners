@@ -46,7 +46,7 @@ export default function Hero() {
       </div>
       <div className="py-8  items-center gap-6 justify-center lg:justify-start w-1/2">
         {/* preview */}
-        <div className="w-full max-w-4xl backdrop-blur-sm bg-white/10 dark:bg-black/20 relative flex items-center justify-center rounded-xl aspect-[3/1] overflow-hidden border border-white/20 p-8 shadow-xl flex-col font-[montserrat] text-white">
+        <div className="w-full sm:max-w-full md:max-w-screen-md lg:max-w-screen-lg backdrop-blur-sm bg-white/10 dark:bg-black/20 relative flex items-center justify-center rounded-xl aspect-[3/1] overflow-hidden border border-white/20 p-8 shadow-xl flex-col font-[montserrat] text-white">
           {/* Radial gradient overlay with softer transition */}
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_40%,rgba(1,30,160,10))]">
             {/* Dot pattern with reduced opacity */}
@@ -54,7 +54,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-grid-small-main-blue/40"></div>
           </div>
 
-          <p className="text-4xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 py-4">
+          <p className="lg:text-4xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 py-4">
             Web Developer
           </p>
           <p className="text-white/90 relative z-20 text-xs mb-5">
