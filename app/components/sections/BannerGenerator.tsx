@@ -102,14 +102,13 @@ export default function BannerGenerator() {
     }
   };
 
-  
   return (
     <>
       {modalState && (
         <Modal
           handleEvent={() => setModalState(!modalState)}
           data={data}
-          className={` max-2xl flex-col flex gap-4 w-fit`}
+          className={` max-2xl flex-col flex gap-4 w-full aspect-[820/310]`}
         >
           <Preview
             gradientStyles={gradientStyles}
