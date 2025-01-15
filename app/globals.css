@@ -65,13 +65,5 @@
   font-style: normal;
 }
 
-* {
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-}
-html,
-body {
-  overflow-x: hidden;
-}
 
 
